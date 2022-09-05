@@ -122,7 +122,15 @@ module.exports = () => {
     })
     app.cfg.watch = true;
     app.isQuiting = false;
-
+    protocol.registerSchemesAsPrivileged([
+        { scheme: 'http', privileges: { standard: true, secure: true, bypassCSP: true, allowServiceWorkers: true, supportFetchAPI: true, corsEnabled: true, stream: true } },
+        { scheme: 'file', privileges: { standard: true, secure: true, bypassCSP: true, allowServiceWorkers: true, supportFetchAPI: true, corsEnabled: true, stream: true } },
+        { scheme: 'ameres', privileges: { bypassCSP: true, secure: true, allowServiceWorkers: true, supportFetchAPI: true, corsEnabled: true, stream: true } },
+        { scheme: 'themes', privileges: { bypassCSP: true, secure: true, allowServiceWorkers: true, supportFetchAPI: true, corsEnabled: true, stream: true } },
+        { scheme: 'plugins', privileges: { bypassCSP: true, secure: true, allowServiceWorkers: true, supportFetchAPI: true, corsEnabled: true, stream: true } },
+        { scheme: 'https', privileges: { standard: true, secure: true,  bypassCSP: true, allowServiceWorkers: true, supportFetchAPI: true, corsEnabled: true, stream: true } },
+        { scheme: 'mailto', privileges: { standard: true } },
+       ]);
     app.whenReady().then(async () => {
         await components.whenReady();
         console.log('components ready:', components.status());
