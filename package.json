@@ -2,7 +2,7 @@
   "name": "apple-music-electron",
   "applicationId": "AppleMusicElectron",
   "productName": "Apple Music",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "An open-source, GPU-accelerated Electron application that emulates the Apple Music website in a customizable interface.",
   "license": "MIT",
   "author": "Apple Music Electron Team <cryptofyre@cryptofyre.org> (https://applemusicelectron.com)",
@@ -81,9 +81,9 @@
     }
   ],
   "build": {
-    "electronVersion": "19.0.13",
+    "electronVersion": "20.1.1",
     "electronDownload": {
-      "version": "19.0.13+wvcus",
+      "version": "20.1.1+wvcus",
       "mirror": "https://github.com/castlabs/electron-releases/releases/download/v"
     },
     "appId": "apple-music",
