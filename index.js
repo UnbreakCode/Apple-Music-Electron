@@ -11,6 +11,9 @@ app.ame.handler.LaunchHandler();
 app.ame.handler.InstanceHandler();
 app.ame.init.BaseInit();
 
+// Expose GC
+app.commandLine.appendSwitch("js-flags", "--expose_gc");
+
 // Creating the Application Window and Calling all the Functions
 function CreateWindow() {
     if (app.isQuiting) { app.quit(); return; }
