@@ -441,6 +441,17 @@ const handler = {
             return 1;
         })
 
+        // Remove WidevineCDM from appdata folder
+        ipcMain.on("reinstallWidevineCDM", () => {
+            const widevineCdmPath = join(app.getPath("userData"), "./WidevineCdm");
+            if (existsSync(widevineCdmPath)) {
+                rmSync(widevineCdmPath, { recursive: true, force: true })
+            }
+            // reinstall WidevineCDM
+            app.relaunch()
+            app.exit()
+        })
+
         // Electron-Store Renderer Handling for Getting Values
         ipcMain.handle('getStoreValue', (event, key, defaultValue) => {
             return (defaultValue ? app.cfg.get(key, true) : app.cfg.get(key));
