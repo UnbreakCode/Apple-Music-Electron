@@ -27,6 +27,7 @@
     }
 	/* get token */
 	function getToken(mode, track, artist, songid, lang, time) {
+		getMXMSubs(track, artist, lang, time);
 		    var url  = "https://apic-desktop.musixmatch.com/ws/1.1/token.get?app_id=web-desktop-app-v1.0&t="+revisedRandId();
 			var req = new XMLHttpRequest();  
 			req.overrideMimeType("application/json");
@@ -63,12 +64,14 @@
     }
 	function getMXMSubs(track, artist, token, lang, time) {
 		var usertoken = encodeURIComponent(token);
+		let richsyncQuery = false
+		let itunesid = (id && id != "") ? id : ''; // Mode 1 -> Subs
 		var timecustom = `&f_subtitle_length=${time}&q_duration=${time}&f_subtitle_length_max_deviation=40`;
-		var url  = "https://apic-desktop.musixmatch.com/ws/1.1/macro.subtitles.get?format=json&namespace=lyrics_richsynched&subtitle_format=lrc&q_artist="+artist+"&q_track="+track+"&usertoken="+usertoken+timecustom+"&app_id=web-desktop-app-v1.0&t="+revisedRandId();
+		var url = "https://api.cider.sh/v1/lyrics?" + "mode=1" + "&richsyncQuery=" + richsyncQuery + "&track=" + track + "&artist=" + artist + "&songID=" + "" + "&source=mxm";
 		var req = new XMLHttpRequest();  
         req.overrideMimeType("application/json");
-        req.open('GET', url, true);
-		req.setRequestHeader("authority", "apic-desktop.musixmatch.com");
+		req.setRequestHeader("User-Agent", "Cider/1.5.7-beta.78");
+		req.open('POST', url, true);
         req.onload  = function() {	
         var jsonResponse = JSON.parse(this.responseText);
 		console.log(jsonResponse);
