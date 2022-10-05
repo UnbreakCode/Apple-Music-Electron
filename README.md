@@ -9,8 +9,8 @@
   <a href="https://discord.gg/CezHYdXHEM">
     <br><img src="https://img.shields.io/discord/843954443845238864?color=%237289DA&label=chat&logo=discord&logoColor=white"/>
   </a>
-  <a href="https://twitter.com/AppleElectron">
-    <img src="https://img.shields.io/twitter/follow/AppleElectron?color=%231DA1F2&logo=twitter&style=plastic"/>
+  <a href="https://twitter.com/UnbreakCode">
+    <img src="https://img.shields.io/twitter/follow/UnbreakCode?color=%231DA1F2&logo=twitter&style=plastic"/>
   </a>
   <a href="https://reddit.com/r/applemusicelectron">
     <img src="https://img.shields.io/reddit/subreddit-subscribers/applemusicelectron?color=FF5700&logo=reddit&style=plastic"/>
@@ -21,8 +21,8 @@
 
 #### Links
 * [Wiki](https://github.com/Apple-Music-Electron/Apple-Music-Electron/wiki)
-* [Request Feature](https://github.com/Apple-Music-Electron/Apple-Music-Electron/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=%5BEnhancement%5D)
-* [Report Bug](https://github.com/Apple-Music-Electron/Apple-Music-Electron/issues/new?assignees=&labels=bug&template=bug_report.md&title=%5BBUG%5D+)
+* [Request Feature](https://github.com/UnbreakCode/Apple-Music-Electron/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=%5BEnhancement%5D)
+* [Report Bug](https://github.com/UnbreakCode/Apple-Music-Electron/issues/new?assignees=&labels=bug&template=bug_report.md&title=%5BBUG%5D+)
 * [**View The Releases**](https://github.com/UnbreakCode/Apple-Music-Electron/releases/latest)
 
 ### Install Sources
@@ -30,10 +30,10 @@ Here are all the places that you can install Apple-Music-Electron from:
 
 Package Name | Source | Version | Maintainer
 ---|---|---|---
-[Apple Music Electron](https://applemusicelectron.com/) | [GitHub](https://github.com/UnbreakCode/Apple-Music-Electron/) | [![Build Version](https://img.shields.io/github/release/Apple-Music-Electron/Apple-Music-Electron?style=flat)](https://github.com/Apple-Music-Electron/Apple-Music-Electron/releases) | AME Team
-[`apple-music-electron-git`](https://aur.archlinux.org/packages/apple-music-electron) | [Arch User Repository](https://aur.archlinux.org/) | [![Build Version](https://img.shields.io/aur/version/apple-music-electron?style=flat)](https://aur.archlinux.org/cgit/aur.git/log/?h=apple-music-electron) | [coredev-uk](https://github.com/coredev-uk)
-[Apple Music Electron](https://snapcraft.io/apple-music-electron) | [Snapcraft](https://snapcraft.io/) | [![Snapcraft](https://snapcraft.io/apple-music-electron/badge.svg)](https://snapcraft.io/apple-music-electron) | [cryptofyre](https://github.com/cryptofyre)
-[`cryptofyre.AppleMusicElectron`](https://winstall.app/apps/cryptofyre.AppleMusicElectron) | [Windows Package Manager](https://github.com/microsoft/winget-cli/) | ![Windows Package Manager](https://img.shields.io/badge/winget-v2.5.0-blue?style=flat&logo=microsoft) | [cryptofyre](https://github.com/cryptofyre)
+[Apple Music Electron](https://applemusicelectron.com/) | [GitHub](https://github.com/UnbreakCode/Apple-Music-Electron/) | [![Build Version](https://img.shields.io/github/release/Apple-Music-Electron/Apple-Music-Electron?style=flat)](https://github.com/Apple-Music-Electron/Apple-Music-Electron/releases) | UnbreakCode
+[`apple-music-electron-git`](https://aur.archlinux.org/packages/apple-music-electron) | [Arch User Repository](https://aur.archlinux.org/) | [![Build Version](https://img.shields.io/aur/version/apple-music-electron?style=flat)](https://aur.archlinux.org/cgit/aur.git/log/?h=apple-music-electron) | [UnbreakCode](https://github.com/UnbreakCode)
+[Apple Music Electron](https://snapcraft.io/apple-music-electron) | [Snapcraft](https://snapcraft.io/) | [![Snapcraft](https://snapcraft.io/apple-music-electron/badge.svg)](https://snapcraft.io/apple-music-electron) | [UnbreakCode](https://github.com/UnbreakCode)
+[`cryptofyre.AppleMusicElectron`](https://winstall.app/apps/cryptofyre.AppleMusicElectron) | [Windows Package Manager](https://github.com/microsoft/winget-cli/) | ![Windows Package Manager](https://img.shields.io/badge/winget-v2.5.0-blue?style=flat&logo=microsoft) | [UnbreakCode](https://github.com/UnbreakCode)
 
 ### Compiling and Configuration
 For more information surrounding configuration, compiling and other developer documentation, see the [wiki](https://github.com/Apple-Music-Electron/Apple-Music-Electron/wiki).
@@ -44,7 +44,7 @@ For more information surrounding configuration, compiling and other developer do
 [![Discord](https://img.shields.io/discord/843954443845238864?color=%237289DA&label=chat&logo=discord&logoColor=white)](https://discord.gg/CezHYdXHEM)
 
 ### Credits
-![Contributors](https://contrib.rocks/image?repo=Apple-Music-Electron/Apple-Music-Electron)
+![Contributors](https://contrib.rocks/image?repo=UnbreakCode/Apple-Music-Electron)
 
 ### Disclaimer
 *This project is NOT affliated with Apple in anyway shape or form. The project is open source and free to use (with an Apple Music subscription)
