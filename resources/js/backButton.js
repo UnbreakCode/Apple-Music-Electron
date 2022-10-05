@@ -4,7 +4,7 @@ try {
         if (!document.querySelector('#backButtonBar')) {
             document.getElementById('web-main').insertAdjacentHTML("afterbegin", `
                 <div id="backButtonBar">
-                    <div class="button-area" onclick="ipcRenderer.send('back');">
+                    <div class="button-area" id="backButtonClicked">
                         <img src="https://developer.apple.com/design/human-interface-guidelines/macos/images/icons/system-images/control/chevron-backward.png" alt="Back Button">
                     </div>
                 </div>
@@ -14,6 +14,11 @@ try {
         if (document.getElementsByClassName('dragDiv right-aligned').length > 0) {
             document.getElementById('backButtonBar').style.top = '25px'
         }
+
+        const backButtonPressed = document.getElementById('backButtonClicked');
+        backButtonPressed.addEventListener("click", () => {
+            ipcRenderer.send('back');
+            });
 
         document.getElementById('web-main').addEventListener('scroll', function () {
             if (document.getElementById('web-main').scrollTop > 80) {

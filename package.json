@@ -81,9 +81,9 @@
     }
   ],
   "build": {
-    "electronVersion": "20.1.1",
+    "electronVersion": "21.0.1",
     "electronDownload": {
-      "version": "20.1.1+wvcus",
+      "version": "21.0.1+wvcus",
       "mirror": "https://github.com/castlabs/electron-releases/releases/download/v"
     },
     "appId": "apple-music",
