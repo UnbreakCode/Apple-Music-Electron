@@ -15,11 +15,6 @@ try {
             document.getElementById('backButtonBar').style.top = '25px'
         }
 
-        const backButtonPressed = document.getElementById('backButtonClicked');
-        backButtonPressed.addEventListener("click", () => {
-            ipcRenderer.send('back');
-            });
-
         document.getElementById('web-main').addEventListener('scroll', function () {
             if (document.getElementById('web-main').scrollTop > 80) {
                 document.getElementById('backButtonBar').style.backgroundColor = 'var(--playerBackground)';
@@ -30,6 +25,11 @@ try {
             }
         });
         
+        /* listen to click event */
+        const backButtonPressed = document.getElementById('backButtonClicked');
+        backButtonPressed.addEventListener("click", () => {
+            ipcRenderer.send('back');
+        });
 
     }
 } catch (e) {
