@@ -1,4 +1,3 @@
-
 try {
     /* Add AM Lyrics Font JP, JR */
     var headID = document.getElementsByTagName('head')[0];
@@ -1343,6 +1342,27 @@ try {
 
             themes: {
                 updateThemesListing: (listing) => {
+
+                    const themePressed = document.getElementById('themeOptions');
+                    themePressed.addEventListener("click", () => {
+                        AMStyling.showThemeOptions();
+                    });
+
+                    const updateThemePressed = document.getElementById('updateThemes');
+                    updateThemePressed.addEventListener("click", () => {
+                        AMSettings.themes.updateThemes();
+                    });
+
+                    const reinstallWidevinePressed = document.getElementById('reinstallWidevineCDM');
+                    reinstallWidevinePressed.addEventListener("click", () => {
+                        ipcRenderer.send('reinstallWidevineCDM');
+                    });
+
+                    const copyPressed = document.getElementById('copyLogFile');
+                    copyPressed.addEventListener("click", () => {
+                        AMSettings.copyLogFile();
+                    });
+
                     let themesListingHTML = `<option disabled>Select one</option>\n<option value='default'>Default</option>`;
                     for (const [fileName, theme] of Object.entries(listing)) {
                         themesListingHTML = themesListingHTML + `\n<option value="${fileName}">${theme.name}</option>`;
@@ -1412,6 +1432,7 @@ try {
                 }
                 /* Dropdowns */
                 else if (field.classList.contains('form-dropdown-select')) {
+                    
                     field.value = preferences[category][element];
                     field.addEventListener('change', (event) => {
                         ipcRenderer.invoke('setStoreValue', `${category}.${element}`, event.target.value).catch((err) => console.error(err));
@@ -1420,6 +1441,13 @@ try {
                 }
                 /* LastFM Connect Button */
                 else if (field.id === "lfmConnect") {
+
+                    /* listen to click event */
+                    const lastfmPressed = document.getElementById('lfmConnect');
+                    lastfmPressed.addEventListener("click", () => {
+                        AMSettings.lastfm.LastFMAuthenticate();
+                    });
+
                     ipcRenderer.invoke('getStoreValue', 'tokens.lastfm').then((token) => {
                         if (token) {
                             field.innerHTML = `Disconnect\n<p style="font-size: 8px"><i>(Authed: ${token})</i></p>`;

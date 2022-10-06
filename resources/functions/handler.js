@@ -443,6 +443,7 @@ const handler = {
 
         // Remove WidevineCDM from appdata folder
         ipcMain.on("reinstallWidevineCDM", () => {
+            console.log("trying to reinstall widevine [BETA]");
             const widevineCdmPath = join(app.getPath("userData"), "./WidevineCdm");
             if (existsSync(widevineCdmPath)) {
                 rmSync(widevineCdmPath, { recursive: true, force: true })
