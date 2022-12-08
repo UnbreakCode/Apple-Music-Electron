@@ -1,6 +1,8 @@
 require('v8-compile-cache');
 const {app, session} = require('electron');
 
+//24.12.2022 - welcome :)
+
 // Initialize the Preferences so verbose doesnt fuck up
 const appFuncs = require('./resources/functions/app-init');
 app.ame = appFuncs()
