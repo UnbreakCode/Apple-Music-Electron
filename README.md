@@ -37,6 +37,7 @@ Package Name | Source | Version | Maintainer
 
 ### Compiling and Configuration
 For more information surrounding configuration, compiling and other developer documentation, see the [wiki](https://github.com/Apple-Music-Electron/Apple-Music-Electron/wiki).
+EDIT: needs Node v16 for compiling!
 
 ### Socials
 ![Subreddit subscribers](https://img.shields.io/reddit/subreddit-subscribers/applemusicelectron?color=FF5700&logo=reddit&style=plastic)
