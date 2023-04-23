@@ -22,7 +22,7 @@
         "glasstron": "^0.1.1"
   },
   "devDependencies": {
-    "electron": "github:castlabs/electron-releases",
+    "electron": "github:castlabs/electron-releases"
   },
   "fileAssociations": [
     {
