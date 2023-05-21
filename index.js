@@ -1,8 +1,12 @@
 const { app, BrowserWindow } = require('electron');
 const electron = require('electron');
-const glasstron = require('glasstron');
+require('v8-compile-cache');
 
 electron.app.commandLine.appendSwitch("enable-transparent-visuals");
+
+// Initialize the Preferences so verbose doesnt fuck up
+const appFuncs = require('./resources/functions/app-init');
+app.ame = appFuncs()
 
 electron.app.on('ready', () => {
 	setTimeout(
@@ -12,18 +16,7 @@ electron.app.on('ready', () => {
 });
 
 function spawnWindow(){
-	win = new glasstron.BrowserWindow({
-		width: 800,
-		height: 600,
-		frame: false,
-	});
-	win.blurType = "acrylic";
-	// Windows 10 1803+; for older versions you
-	// might want to use 'blurbehind'
-	win.setBlur(true);
-	win.loadURL("https://music.apple.com/de");
-
-	return win;
+	app.win = app.ame.win.CreateBrowserWindow()
 }
 
 app.on('window-all-closed', () => {

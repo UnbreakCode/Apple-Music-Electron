@@ -19,7 +19,11 @@
     "dist": "electron-builder"
   },
   "dependencies": {
-        "glasstron": "^0.1.1"
+    "electron-acrylic-window": "^0.5.11",
+    "electron-store": "^8.1.0",
+    "electron-window-state": "^5.0.3",
+    "mica-electron": "^1.4.2",
+    "v8-compile-cache": "^2.3.0"
   },
   "devDependencies": {
     "electron": "github:castlabs/electron-releases"
