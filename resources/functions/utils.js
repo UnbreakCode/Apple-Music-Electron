@@ -27,7 +27,7 @@ const {
     chmod = require("chmodr"),
     clone = require("git-clone/promise"),
     trayIconDir = (nativeTheme.shouldUseDarkColors ? join(__dirname, `../icons/media/light/`) : join(__dirname, `../icons/media/dark/`)),
-    ElectronSentry = require("@sentry/electron"),
+    //ElectronSentry = require("@sentry/electron"),
     { execSync } = require("child_process");
 
 const Utils = {
@@ -420,9 +420,12 @@ const Utils = {
     /* initAnalytics - Sentry Analytics */
     initAnalytics: () => {
         if (app.cfg.get('general.analyticsEnabled') && app.isPackaged) {
-            ElectronSentry.init({
+            /*
+                        ElectronSentry.init({
                 dsn: "https://20e1c34b19d54dfcb8231e3ef7975240@o954055.ingest.sentry.io/5903033"
             });
+             */
+
         }
     },
 
@@ -431,9 +434,6 @@ const Utils = {
         app.win.show()
         app.splash.Destroy()
         app.splash = null
-        if(app["updater"]) {
-            app.updater.checkForUpdates()
-        }
     },
 
     /* checkForUpdates - Checks for update using electron-updater (Part of electron-builder) */

@@ -18,7 +18,9 @@ function CreateWindow() {
     if (app.isQuiting) { app.quit(); return; }
 
     app.win = app.ame.win.CreateBrowserWindow() // Create the BrowserWindow
-    app.splash = require("./resources/functions/splash").CreateWindow()
+    app.win.setBackgroundMaterial('acrylic') // will auto decide between mica/acrylic/tabbed/none
+
+    //app.splash = require("./resources/functions/splash").CreateWindow()
     app.ame.handler.WindowStateHandler(); // Handling the Window
     app.ame.handler.RendererListenerHandlers(); // Renderer Listeners
     app.ame.handler.SettingsHandler(); // Handles updates to settings

@@ -437,7 +437,7 @@ const handler = {
 
         // Force Update Check
         ipcMain.handle("force-update-check", (event)=>{
-            app.updater.checkForUpdates(true)
+            //app.updater.checkForUpdates(true)
             return 1;
         })
 
@@ -882,6 +882,7 @@ const handler = {
             app.win.webContents.setAudioMuted(mute);
         });
 
+        /*
         if (process.platform === "win32") {
             const EAstream = new Stream.PassThrough();
             let ao;
@@ -952,7 +953,7 @@ const handler = {
             });
 
             console.log(portAudio.getHostAPIs());
-            
+
             // get 32f header
             let fake32fwav = new WaveFile();
             fake32fwav.fromScratch(2, 48000, '32f', [0, 0, 0, 0]);
@@ -961,11 +962,11 @@ const handler = {
             var isArrayBufferSupported = (new Buffer(new Uint8Array([1]).buffer)[0] === 1);
 
             var arrayBufferToBuffer = isArrayBufferSupported ? arrayBufferToBufferAsArgument : arrayBufferToBufferCycle;
-            
+
             function arrayBufferToBufferAsArgument(ab) {
               return new Buffer(ab);
             }
-            
+
             function arrayBufferToBufferCycle(ab) {
               var buffer = new Buffer(ab.byteLength);
               var view = new Uint8Array(ab);
@@ -974,18 +975,18 @@ const handler = {
               }
               return buffer;
             }
-            
+
             ipcMain.on('writePCM', function (event, leftpcm, rightpcm, lengthx) {
                     var channelBuffers = [Float32Array.from(leftpcm), Float32Array.from(rightpcm)];
                     const length = (channelBuffers[0]).length; // Number of frames, in other words, the length of each channelBuffers.
-        
+
                     const encodedBuffer = new ArrayBuffer(length * 3 * 2);
                     const encodedView = new DataView(encodedBuffer);
-                
+
                     // Convert Float32 to Int16
                     for (let ch = 0; ch < 2; ch++) {
                       let channelSamples = channelBuffers[ch];
-                
+
                       for (let i = 0; i < length; i++) {
                         // Clamp value
                         let sample = (channelSamples[i] * 8388607) | 0;
@@ -996,7 +997,7 @@ const handler = {
                         }
                         // Then store
                         const offset = (i * 2 + ch) * 3;
-                        var valz = 0 | sample; 
+                        var valz = 0 | sample;
                         var uinx  = valz & 0xff;
                         encodedView.setUint8(offset, uinx);
                         var uiny  = (valz & 0xff00) >> 8;
@@ -1005,7 +1006,7 @@ const handler = {
                         encodedView.setUint8(offset+2, uinz);
                       }
                     }
-                    EAstream.write(Buffer.from(new Uint8Array(encodedBuffer).buffer));            
+                    EAstream.write(Buffer.from(new Uint8Array(encodedBuffer).buffer));
 
             });
 
@@ -1017,6 +1018,7 @@ const handler = {
             })
 
         }
+         */
     },
 
     GoogleCastHandler: () => {

@@ -1,6 +1,8 @@
+const { Client } = require("@xhayper/discord-rpc");
+
 const {app} = require('electron'),
-    DiscordRPC = require('discord-rpc'),
     {initAnalytics} = require('../utils');
+
 initAnalytics();
 
 module.exports = {
@@ -8,16 +10,29 @@ module.exports = {
         app.discord = {isConnected: false};
         if (!app.cfg.get('general.discordRPC')) return;
 
-        DiscordRPC.register(clientId) // Apparently needed for ask to join, join, spectate etc.
-        const client = new DiscordRPC.Client({ transport: "ipc" });
-        app.discord = Object.assign(client,{error: false, activityCache: null, isConnected: false});
+        const client = new Client({
+            clientId: "123456789012345678"
+        });
+
+        client.on("ready", () => {
+            client.user?.setActivity({
+                state: "Hello, world!"
+            });
+        });
+
+        client.login();
+
+        app.discord = Object.assign(client,{error: false, activityCache: null});
 
         // Login to Discord
-        app.discord.login({ clientId })
+        /*
+                app.discord.login()
             .then(() => {
                 app.discord.isConnected = true;
             })
             .catch((e) => console.error(`[DiscordRPC][connect] ${e}`));
+         */
+
 
         app.discord.on('ready', () => {
             console.log(`[DiscordRPC][connect] Successfully Connected to Discord. Authed for user: ${client.user.username} (${client.user.id})`);
@@ -32,31 +47,22 @@ module.exports = {
         app.discord.on('error', err => {
             console.error(`[DiscordRPC] ${err}`);
             this.disconnect()
-            app.discord.isConnected = false;
+            //app.discord.isConnected = false;
         });
     },
 
     disconnect: function () {
-        if (!app.cfg.get('general.discordRPC') || !app.discord.isConnected) return;
 
-        try {
-            app.discord.destroy().then(() => {
-                app.discord.isConnected = false;
-                console.verbose('[DiscordRPC][disconnect] Disconnected from discord.')
-            }).catch((e) => console.error(`[DiscordRPC][disconnect] ${e}`));
-        } catch (err) {
-            console.error(err)
-        }
     },
 
     updateActivity: function (attributes) {
         if (!app.cfg.get('general.discordRPC') || app.cfg.get('general.incognitoMode')) return;
 
-        if (!app.discord.isConnected) {
-            this.connect()
-        }
+        //if (!app.discord.isConnected) {
+            //this.connect()
+       // }
 
-        if (!app.discord.isConnected) return;
+        //if (!app.discord.isConnected) return;
 
         console.verbose('[DiscordRPC][updateActivity] Updating Discord Activity.')
 

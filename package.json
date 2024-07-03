@@ -19,11 +19,9 @@
     "dist": "electron-builder"
   },
   "dependencies": {
-    "@sentry/electron": "^2.5.4",
     "castv2-client": "github:vapormusic/node-castv2-client",
-    "chmodr": "^1.2.0",
-    "discord-rpc": "https://github.com/UnbreakCode/rpc",
-    "electron-acrylic-window": "^0.5.9",
+    "chmodr": "1.2.0",
+    "@xhayper/discord-rpc": "1.1.2",
     "electron-log": "^4.4.8",
     "electron-store": "^8.1.0",
     "electron-updater": "^5.3.0",
@@ -35,14 +33,10 @@
     "lastfmapi": "^0.1.1",
     "mdns-js": "github:ciderapp/node-mdns-js",
     "mpris-service": "^2.1.2",
-    "naudiodon": "github:vapormusic/naudiodon",
-    "node-fetch": "3.3.0",
+    "node-fetch": "2.7.0",
     "node-ssdp": "^4.0.1",
     "opus-media-recorder": "^0.8.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "regedit": "^5.0.0",
-    "register-scheme": "github:ciderapp/node-register-scheme",
+    "regedit": "5.1.3",
     "request": "^2.88.2",
     "rimraf": "^3.0.2",
     "source-map-support": "^0.5.20",
@@ -80,9 +74,9 @@
     }
   ],
   "build": {
-    "electronVersion": "21.3.3",
+    "electronVersion": "31.1.0",
     "electronDownload": {
-      "version": "21.3.3+wvcus",
+      "version": "31.1.0+wvcus",
       "mirror": "https://github.com/castlabs/electron-releases/releases/download/v"
     },
     "appId": "apple-music",

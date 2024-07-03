@@ -301,7 +301,7 @@ module.exports = {
             y: mainWindowState.y,
             minWidth: (app.cfg.get('visual.streamerMode') ? 400 : 300),
             minHeight: ((app.cfg.get('visual.frameType') === 'mac' || app.cfg.get('visual.frameType') === 'mac-right') ? (app.cfg.get('visual.streamerMode')? 55 : 300) : (app.cfg.get('visual.streamerMode') ? 115 : 300)),
-            frame: (process.platform !== 'win32' && !(app.cfg.get('visual.frameType') === 'mac' || app.cfg.get('visual.frameType') === 'mac-right')),
+            //frame: (process.platform !== 'win32' && !(app.cfg.get('visual.frameType') === 'mac' || app.cfg.get('visual.frameType') === 'mac-right')),
             title: app.getName(),
             resizable: true,
             show: true,
@@ -333,22 +333,17 @@ module.exports = {
 
         // Create the Browser Window
         console.log('[CreateBrowserWindow] Creating BrowserWindow.')
-        let win;
-        if (process.platform === "darwin" || process.platform === "linux") {
-            win = new BrowserWindow(options)
-        } else {
-            const {BrowserWindow} = require("electron-acrylic-window");
-            if (app.transparency && transparencyOptions) {
-                console.log('[CreateBrowserWindow] Setting Vibrancy')
-                options.vibrancy = transparencyOptions
-            }
-            win = new BrowserWindow(options)
-        }
+            let win = new BrowserWindow(options)
 
         // Set the transparency
-        if (app.transparency && transparencyOptions && process.platform === "darwin") {
+        //OPT: use transparencyOptions
+        if (app.transparency) {
             console.log('[CreateBrowserWindow] Setting Vibrancy')
-            win.setVibrancy(transparencyOptions)
+            if (process.platform === "win32") {
+                win.setBackgroundMaterial('auto') // will auto decide between mica/acrylic/tabbed/none
+            } else if (process.platform === "darwin") {
+                win.setVibrancy(transparencyOptions)
+            }
         }
 
         // alwaysOnTop

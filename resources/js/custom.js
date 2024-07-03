@@ -1464,7 +1464,7 @@ try {
                     });
 
                     /* General Settings */
-                    AMSettings.HandleField('checkForUpdates');
+                    //AMSettings.HandleField('checkForUpdates');
                     AMSettings.HandleField('incognitoMode');
                     AMSettings.HandleField('playbackNotifications');
                     AMSettings.HandleField('trayTooltipSongName');
